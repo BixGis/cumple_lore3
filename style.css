@@ -1,0 +1,161 @@
+/* Reset general */
+* {
+    min-width: 0;
+    font: inherit;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh; /* Asegura que el fondo ocupe toda la pantalla */
+    background-color: #2a495b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+h1, h2, h3 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-letter {
+    position: relative;
+    width: 500px; /* Ajusta el ancho de la carta */
+    height: 600px; /* Ajusta la altura de la carta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cover {
+    position: absolute;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-top: 150px solid #fe3334;
+    border-bottom: 150px solid transparent;
+    transition: transform 0.75s ease-in-out;
+    transform-origin: top;
+    z-index: 3;
+}
+
+.paper {
+    position: absolute;
+    padding: 2rem;
+    line-height: 1.8rem;
+    background: white;
+    width: 500px; /* Mantén el ancho del papel */
+    height: 660px; /* Ajusta la altura del papel para que cubra toda la carta */
+    border-radius: 15px;
+    text-align: justify;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Añadir sombra para mayor profundidad */
+    opacity: 0; /* Inicialmente oculto */
+    z-index: 2; /* El papel está al frente de la carta */
+    transform: scale(0.95); /* Escala ligera para hacer el efecto más suave */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Efectos suaves */
+}
+
+/* Animación de abrir el papel */
+.open-paper {
+    opacity: 1;
+    transform: scale(1); /* Al abrirse, vuelve al tamaño original */
+}
+
+.letter {
+    border-left: 250px solid #ff989e;
+    border-right: 250px solid #ff989e;
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid #ff858a;
+    position: relative;
+    z-index: 1; /* La carta está detrás del papel */
+}
+
+/* Opciones de botones */
+.options {
+    display: flex;
+    gap: 5rem;
+}
+
+.options button {
+    color: #ff3234;
+    font-weight: 600;
+    border-radius: 3px;
+    background: #fad7df;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid #fe3334;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.options button:hover {
+    background: #ff989e;
+    color: white;
+}
+
+/* Animaciones de corazones */
+.heart {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 46.5%;
+    margin: auto;
+    font-size: 3rem;
+    color: #fe3334;
+    animation: crecer 1s forwards;
+    z-index: 3;
+}
+
+.heart:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.heart:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.heart:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes crecer {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
+
+
